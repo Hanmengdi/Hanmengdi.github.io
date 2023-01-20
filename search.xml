@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>第一篇Blog</title>
+      <link href="/2023/01/20/%E7%AC%AC%E4%B8%80%E7%AF%87Blog/"/>
+      <url>/2023/01/20/%E7%AC%AC%E4%B8%80%E7%AF%87Blog/</url>
+      
+        <content type="html"><![CDATA[<h3 id="在Hexo的第一篇Blog"><a href="#在Hexo的第一篇Blog" class="headerlink" title="在Hexo的第一篇Blog"></a>在Hexo的第一篇Blog</h3><p>​    起因还是在22年3月份实验室让做的一个hexo，当时随便做了一个什么也没有的网页了事了，距今已经十个月，今天突然想起，反正也没有什么事干，干脆把这个网站优化一下。但是事与愿违我以为搭好框架再随便改改一些前端的东西不就行了吗，还是想太简单了。首先就是命令全记不起来了（悲，不知如何下手，于是第一个做废了。 </p><p>​    第二个的时候基本快成功了，但不知为什么，配置在本地的hexo主页里的文章不管写什么打开全是hello world、公网的主页里文章打开还是主页，迷惑。这错误找遍了百度，谷歌全没有有点离谱。</p><p>​    第三个终于做好了就是这个从下载各种包和依赖，到部署到github，又在阿里云租了一个域名，基本每个环节都出了点小问题，经历了两次重做，终于能够正常的写东西并且在网站里能看见了。今天年二十九，算是在年三十之前搞完了。</p><p>​    主题用的Butterfly，感觉还是挺花哨的。本着简洁的原则，其他就基本没做什么，甚至转发和评论系统都没有做（可能是因为懒？反正知道这个站的人也没几个）。<br>​    那么以后要在这里记录一下学习，以及一些杂七杂八的东西了。<br>​    （还是用不习惯vscode写Markdown，喜欢Typora，毕竟花钱买的）<br>​    随便写个sigmoid试试：</p><p>​                     $\Large \sigma{(x)} = \frac{1}{1+e^{-x}}$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随便写 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>test00</title>
       <link href="/2023/01/20/test00/"/>
       <url>/2023/01/20/test00/</url>
       
-        <content type="html"><![CDATA[<p>#这是一个测试文件</p><p><strong>测试</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="这是一个测试文件"><a href="#这是一个测试文件" class="headerlink" title="这是一个测试文件"></a>这是一个测试文件</h1><p><strong>测试</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
