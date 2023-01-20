@@ -8,7 +8,7 @@
       <link href="/2023/01/20/test00/"/>
       <url>/2023/01/20/test00/</url>
       
-        <content type="html"><![CDATA[<p>#这是一个测试文件</p><p><strong>测试</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello world&quot;)</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>#这是一个测试文件</p><p><strong>测试</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
