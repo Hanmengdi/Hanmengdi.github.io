@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>k倍区间</title>
+      <link href="/2023/02/04/k%E5%80%8D%E5%8C%BA%E9%97%B4/"/>
+      <url>/2023/02/04/k%E5%80%8D%E5%8C%BA%E9%97%B4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="K倍区间"><a href="#K倍区间" class="headerlink" title="K倍区间"></a>K倍区间</h1><p>acwing 1230</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, k;</span><br><span class="line">ll s[N];    <span class="comment">//前缀和数组</span></span><br><span class="line">ll cnt[N];  <span class="comment">//cnt[i]表示模k余数为i的s[i]的个数 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;    <span class="comment">//数组长度，以及k </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s[i] += s[i<span class="number">-1</span>];  <span class="comment">//计算前缀和</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ll maxk = <span class="number">0</span>;   <span class="comment">//k倍区间个数 </span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//为降低时间复杂度，将s[r] - s[l-1])%k == 0 转化为 s[r]%k == s[l-1]%k</span></span><br><span class="line">    cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        maxk += cnt[s[i]%k];  <span class="comment">//先累加 某个数%k 与 s[i]%k相等的值</span></span><br><span class="line">        cnt[s[i]%k]++;        <span class="comment">//更新（加入当前循环的结果）取余为 s[i]%k 的值的个数</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; maxk &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最难理解的莫过于最后的循环</p><p>把(s[r] - s[l-1]) % k == 0 中的l-1换为l，则由于l-1的范围在0~ r-1，则l的范围在1~r，<br>原式变为(s[r] - s[l]) % k == 0 再由数学知识变为 s[r] % k == s[l] % k，所以只需找到前面的取余结果与s[r]取余结果相同的数的个数即可。</p><p>cnt[i]表示为存放 某个数取余k余数为i的数的个数</p><p>maxk += cnt[s[i]%k];  先累加 某个数%k 与 s[i]%k相等的值<br>再由cnt[s[i]%k]++; 更新（加入当前循环的结果）取余为 s[i]%k 的值的个数</p><p>cnt[0] = 0;是因为在进入i从1开始的循环时，余数为0的数已经有了一个了，即为s[0]。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> c/c++算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前缀和 </tag>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>start</title>
       <link href="/2023/01/28/start/"/>
       <url>/2023/01/28/start/</url>
